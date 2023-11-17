@@ -5,7 +5,7 @@
     <nav class="vertnav navbar navbar-light">
         <!-- nav bar -->
         <div class="w-100 mb-4 d-flex">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{route('gadmin.index')}}">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{ route('gadmin.index') }}">
                 <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120"
                     xml:space="preserve">
@@ -17,6 +17,14 @@
                 </svg>
             </a>
         </div>
+        <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('gadmin.index') }}">
+                    <i class="fe fe-home fe-16"></i>
+                    <span class="ml-3 item-text">Dashboard</span>
+                </a>
+            </li>
+        </ul>
 
         <p class="text-muted nav-heading mt-4 mb-1">
             <span>Components</span>
@@ -43,12 +51,14 @@
                                 Table</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{route('gadmin.university.create')}}"><span class="ml-1 item-text">Add
+                        <a class="nav-link pl-3" href="{{ route('gadmin.university.create') }}"><span
+                                class="ml-1 item-text">Add
                                 University</span></a>
                     </li>
-                    
+
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{route('gadmin.university.archive')}}"><span class="ml-1 item-text">University
+                        <a class="nav-link pl-3" href="{{ route('gadmin.university.archive') }}"><span
+                                class="ml-1 item-text">University
                                 Archive</span></a>
                     </li>
                 </ul>
@@ -57,7 +67,7 @@
 
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item dropdown">
-                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                <a href="#ui-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
                         class="bi bi-person-gear" viewBox="0 0 14 14">
@@ -67,7 +77,7 @@
 
                     <span class="ml-3 item-text">Local Admin Managment</span><span class="sr-only"></span>
                 </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="dashboard">
+                <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
                     <li class="nav-item active">
                         <a class="nav-link pl-3" href="./index.html"><span class="ml-1 item-text">University
                                 Table</span></a>
@@ -91,7 +101,7 @@
 
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item dropdown">
-                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
                         class="bi bi-building" viewBox="0 0 14 14">
@@ -103,7 +113,7 @@
 
                     <span class="ml-3 item-text">University Managment</span><span class="sr-only"></span>
                 </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="dashboard">
+                <ul class="collapse list-unstyled pl-4 w-100" id="forms">
                     <li class="nav-item active">
                         <a class="nav-link pl-3" href="./index.html"><span class="ml-1 item-text">University
                                 Table</span></a>
@@ -129,25 +139,23 @@
         <p class="text-muted nav-heading mt-4 mb-1">
             <span>Authuntication</span>
         </p>
+        <br>
+      
         <ul class="navbar-nav flex-fill w-100 mb-2">
+
             <li class="nav-item w-100">
-                <form action="{{ route('gadmin.logout') }}" method="POST">
-                    @csrf
-                    <button class="nav-link" type="submit" style="background-color: transparent ; border: none;">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
-                            class="bi bi-box-arrow-right" viewBox="0 0 14 14">
-                            <path fill-rule="evenodd"
-                                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                            <path fill-rule="evenodd"
-                                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                        </svg>
-
-                        <span class="ml-3 item-text">Logout</span>
-                    </button>
-                </form>
+               
+                    <a class="nav-link pl-3" href="#" onclick="document.getElementById('logoutForm').submit();">
+                        
+                    <i class="fe fe-log-out fe-16"></i>
+                    <span class="ml-3 item-text">Logout</span>
+               
+                </a>
+        
             </li>
         </ul>
-
+        <form id="logoutForm" action="{{ route('gadmin.logout') }}" method="post">
+            @csrf 
+    </form>
     </nav>
 </aside>

@@ -131,7 +131,7 @@
                                                                         <button class="dropdown-item" type="submit">Remove</button>
                                                                     </form>
                                                                    
-                                                                    <a class="dropdown-item" href="#">Edit Address</a>
+                                                                    <a class="dropdown-item" href="{{route('gadmin.university.edit.address' , $university->id)}}">Edit Address</a>
                                                                 </div>
                                                             </td>
                                                         </tr>

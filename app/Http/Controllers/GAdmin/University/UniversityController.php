@@ -67,6 +67,32 @@ class UniversityController extends Controller
         return view('GlobalAdmin.University.edit', compact('university', 'catigories'));
     }
 
+    //عرض صفحة تعديل موقع الجامعة 
+
+    public function editAddress($id)
+    {
+        $university = University::findOrfail($id);
+        return view('GlobalAdmin.University.editAddress', compact('university'));
+    }
+
+    //تحديث بيانات الموقع الخاص بالجامعة
+
+    public function updateAddress(Request $request, $id)
+    {
+        $university = University::findOrfail($id);
+        $address = Address::where('id', $university->address_id);
+        $address->update([
+            'city' => $request->input('city'),
+            'region' => $request->input('region'),
+            'street' => $request->input('street'),
+            'near' => $request->input('near'),
+            'another_details' => $request->input('details'),
+            'longitude' => $request->input('longitude'),
+            'latitude' => $request->input('latitude'),
+        ]);
+        return redirect()->route('gadmin.university.index')->with('success_message', 'University Address Updated Successfully');
+    }
+
     //تحديث بيانات الجامعة
 
     public function update(Request $request, $id)
@@ -134,7 +160,7 @@ class UniversityController extends Controller
     }
 
     //استعادة الجامعة المحذوفة
-    
+
     public function restore($id)
     {
         University::withTrashed()->where('id', $id)->restore();
@@ -154,6 +180,5 @@ class UniversityController extends Controller
         } else {
             return redirect()->back()->with('error_message', 'University Not Found');
         }
-
     }
 }

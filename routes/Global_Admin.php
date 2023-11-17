@@ -40,7 +40,11 @@ Route::middleware(['gadmin'])->name('gadmin.')->prefix('gadmin')->group(function
 
     Route::get('/university/edit/{id}', [UniversityController::class, 'edit'])->name('university.edit');
 
+    Route::get('/university/edit/address/{id}', [UniversityController::class, 'editAddress'])->name('university.edit.address');
+
     Route::put('/university/update/{id}', [UniversityController::class, 'update'])->name('university.update');
+
+    Route::put('/university/update/address/{id}', [UniversityController::class, 'updateAddress'])->name('university.update.address');
 
     Route::get('/university/archive', [UniversityController::class, 'archive'])->name('university.archive');
 
