@@ -41,4 +41,12 @@ class University extends Model
     {
         return $this->belongsTo(Catigory::class, 'catigory_id');
     }
+
+
+       //علاقة الجامعات مع المسؤول المحلي  
+
+       public function university()
+       {
+           return $this->hasMany(LAdminUniversity::class,'universityId');
+       }
 }

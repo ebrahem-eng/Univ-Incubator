@@ -79,58 +79,51 @@
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
                     <li class="nav-item active">
-                        <a class="nav-link pl-3" href="./index.html"><span class="ml-1 item-text">University
-                                Table</span></a>
+                        <a class="nav-link pl-3" href="{{route('gadmin.ladmin.index')}}"><span class="ml-1 item-text">Local Admin Table
+                                </span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="./dashboard-analytics.html"><span class="ml-1 item-text">Add
-                                University</span></a>
+                        <a class="nav-link pl-3" href="{{route('gadmin.ladmin.create')}}"><span class="ml-1 item-text">Add
+                                Local Admin</span></a>
                     </li>
+                   
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="./dashboard-sales.html"><span class="ml-1 item-text">Edit
-                                University</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="./dashboard-saas.html"><span class="ml-1 item-text">University
+                        <a class="nav-link pl-3" href="{{route('gadmin.ladmin.archive')}}"><span class="ml-1 item-text">Local Admin
                                 Archive</span></a>
                     </li>
                 </ul>
             </li>
         </ul>
 
+        <p class="text-muted nav-heading mt-4 mb-1">
+            <span>Authorization</span>
+        </p>
+        <br>
+
 
         <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-                <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
-                        class="bi bi-building" viewBox="0 0 14 14">
-                        <path
-                            d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z" />
-                        <path
-                            d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z" />
-                    </svg>
-
-                    <span class="ml-3 item-text">University Managment</span><span class="sr-only"></span>
+            <li class="nav-item w-100">
+               
+                    <a class="nav-link pl-3" href="{{route('gadmin.roles.index')}}" >  
+                    <i class="fe fe-lock fe-16"></i>
+                    <span class="ml-3 item-text">Role</span>
+               
                 </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="forms">
-                    <li class="nav-item active">
-                        <a class="nav-link pl-3" href="./index.html"><span class="ml-1 item-text">University
-                                Table</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="./dashboard-analytics.html"><span class="ml-1 item-text">Add
-                                University</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="./dashboard-sales.html"><span class="ml-1 item-text">Edit
-                                University</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="./dashboard-saas.html"><span class="ml-1 item-text">University
-                                Archive</span></a>
-                    </li>
-                </ul>
+        
+            </li>
+        </ul>
+
+        <ul class="navbar-nav flex-fill w-100 mb-2">
+
+            <li class="nav-item w-100">
+               
+                    <a class="nav-link pl-3" href="{{route('gadmin.permissions.index')}}" >  
+                    <i class="fe fe-key fe-16"></i>
+                    <span class="ml-3 item-text">Permission</span>
+               
+                </a>
+        
             </li>
         </ul>
 

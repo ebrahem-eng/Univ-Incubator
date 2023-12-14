@@ -39,6 +39,13 @@ class GAdmin extends Authenticatable
         return $this->hasMany(University::class,'created_by');
     }
 
+     //علاقة الادمن مع المسؤول المحلي
+
+     public function LAdmin()
+     {
+         return $this->hasMany(LAdmin::class,'created_by');
+     }
+
 
     /**
      * The attributes that should be hidden for serialization.

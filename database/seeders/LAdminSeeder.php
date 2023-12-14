@@ -23,7 +23,7 @@ class LAdminSeeder extends Seeder
             'status'=>'1',
             'age'=>'23',
             'gender'=>'1',
-            
+            'created_by' => '1',
         ]);
 
     }

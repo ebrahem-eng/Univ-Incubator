@@ -14,13 +14,16 @@ return new class extends Migration
         Schema::create('l_admins', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('age');
-            $table->tinyInteger('gender');
-            $table->tinyInteger('status');
-            $table->string('phone');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('age');
+            $table->tinyInteger('gender');
+            $table->tinyInteger('status')->default(0);
+            $table->string('phone');
+            $table->string('img')->nullable();
+            $table->foreignId('created_by')->references('id')->on('g_admins');
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });
