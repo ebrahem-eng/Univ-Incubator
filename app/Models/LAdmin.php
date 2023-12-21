@@ -47,6 +47,13 @@ class LAdmin extends Authenticatable
         return $this->hasMany(LAdminUniversity::class,'ladminID');
     }
 
+       //علاقة المسؤول المحلي مع الكليات
+
+       public function college()
+       {
+           return $this->hasMany(College::class,'created_by');
+       }
+
     /**
      * The attributes that should be hidden for serialization.
      *

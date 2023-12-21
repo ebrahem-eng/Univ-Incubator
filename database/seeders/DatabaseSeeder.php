@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\UniversityCollege;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,5 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AddressSeeder::class);
         $this->call(CatigorySeeder::class);
         $this->call(UniversitySeeder::class);
+        $this->call(CollegeSeeder::class);
+        $this->call(UniversityCollegeSeeder::class);
     }
 }

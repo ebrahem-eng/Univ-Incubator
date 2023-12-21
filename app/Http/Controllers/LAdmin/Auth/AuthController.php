@@ -13,7 +13,7 @@ class AuthController extends Controller
      public function index()
      {
  
-         return view('Local_Admin/Auth/login');
+         return view('LocalAdmin/Auth/login');
      }
  
      //التحقق من عملية تسجيل الدخول

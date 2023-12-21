@@ -12,7 +12,7 @@ class LAdminController extends Controller
        public function index()
        {
      
-        return view('Local_Admin.index');
+        return view('LocalAdmin.index');
          
        }
 }

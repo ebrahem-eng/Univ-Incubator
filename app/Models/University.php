@@ -43,10 +43,17 @@ class University extends Model
     }
 
 
-       //علاقة الجامعات مع المسؤول المحلي  
+    //علاقة الجامعات مع المسؤول المحلي  
 
-       public function university()
-       {
-           return $this->hasMany(LAdminUniversity::class,'universityId');
-       }
+    public function university()
+    {
+        return $this->hasMany(LAdminUniversity::class, 'universityId');
+    }
+
+    //علاقة الجامعات مع الكليات
+
+    public function college()
+    {
+        return $this->hasMany(UniversityCollege::class, 'universityId');
+    }
 }
