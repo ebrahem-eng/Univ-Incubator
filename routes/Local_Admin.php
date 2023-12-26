@@ -46,4 +46,6 @@ Route::middleware(['ladmin'])->name('ladmin.')->prefix('ladmin')->group(function
 
     Route::delete('/university/college/revoke/{id}', [UniversityController::class, 'UniversityCollegeRevoke'])->name('university.college.revoke');
 
+    Route::delete('/university/college/specialization/index/{id}', [UniversityController::class, 'UniversityCollegeSpecializationIndex'])->name('university.college.specialization.index');
+
 });

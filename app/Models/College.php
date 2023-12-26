@@ -15,17 +15,17 @@ class College extends Model
         'created_by'
     ];
 
-     //علاقة الكليات مع المسؤولين المحليين
+    //علاقة الكليات مع المسؤولين 
 
-     public function Ladmin()
-     {
-         return $this->belongsTo(LAdmin::class, 'created_by');
-     }
+    public function Ladmin()
+    {
+        return $this->belongsTo(GAdmin::class, 'created_by');
+    }
 
-     //علاقة الكليات مع الجامعات
+    //علاقة الكليات مع الجامعات
 
-     public function university()
-     {
-         return $this->hasMany(UniversityCollege::class,'collegeId');
-     }
+    public function university()
+    {
+        return $this->hasMany(UniversityCollege::class, 'collegeId');
+    }
 }

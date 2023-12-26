@@ -52,7 +52,9 @@
                                         <!-- table -->
                                         <div class="table-responsive">
 
-                                            <a style="color: white" href="{{route('ladmin.university.choose.college' , $universityID)}}" class="btn btn-primary">Choose New College</a>
+                                            <a style="color: white"
+                                                href="{{ route('ladmin.university.choose.college', $universityID) }}"
+                                                class="btn btn-primary">Choose New College</a>
                                             <br>
                                             <br>
 
@@ -90,15 +92,37 @@
                                                             <td>{{ $college->created_at }}</td>
                                                             <td>{{ $college->updated_at }}</td>
                                                             <td>
-                                                                <form action="{{route('ladmin.university.college.revoke' , $college->id)}}" method="POST">
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <button class="btn btn-danger">
-                                                                        Revoke
-                                                                    </button>
-                                                                    <input type="hidden" value="{{$universityID}}" name="universityID" >
-                                                                </form>
-                                                    
+                                                                <div class="row">
+                                                                    <form
+                                                                        action="{{ route('ladmin.university.college.revoke', $college->id) }}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                        <button class="btn btn-success" style="margin-right: 30px;">
+                                                                            Specializations
+                                                                        </button>
+                                                                        <input type="hidden"
+                                                                            value="{{ $universityID }}"
+                                                                            name="universityID">
+                                                                    </form>
+
+                                                                    <form
+                                                                        action="{{ route('ladmin.university.college.revoke', $college->id) }}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                        <button class="btn btn-danger">
+                                                                            Revoke
+                                                                        </button>
+                                                                        <input type="hidden"
+                                                                            value="{{ $universityID }}"
+                                                                            name="universityID">
+                                                                    </form>
+                                                                </div>
+
+
+
+
                                                             </td>
                                                         </tr>
                                                     @endforeach

@@ -12,14 +12,14 @@ use Spatie\Permission\Traits\HasRoles;
 
 class GAdmin extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , HasRoles , SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $guard ='gadmin';
+    protected $guard = 'gadmin';
     protected $fillable = [
         'name',
         'email',
@@ -36,16 +36,29 @@ class GAdmin extends Authenticatable
 
     public function university()
     {
-        return $this->hasMany(University::class,'created_by');
+        return $this->hasMany(University::class, 'created_by');
     }
 
-     //علاقة الادمن مع المسؤول المحلي
+    //علاقة الادمن مع المسؤول المحلي
 
-     public function LAdmin()
-     {
-         return $this->hasMany(LAdmin::class,'created_by');
-     }
+    public function LAdmin()
+    {
+        return $this->hasMany(LAdmin::class, 'created_by');
+    }
 
+    //علاقة الادمن مع الاختصاصات
+
+    public function specialization()
+    {
+        return $this->hasMany(Specialization::class, 'created_by');
+    }
+
+    //علاقة الادمن مع الكليات
+
+    public function college()
+    {
+        return $this->hasMany(College::class, 'created_by');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

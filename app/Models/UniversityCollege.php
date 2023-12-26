@@ -16,11 +16,18 @@ class UniversityCollege extends Model
 
     public function college()
     {
-        return $this->belongsTo(UniversityCollege::class, 'collegeId');
+        return $this->belongsTo(College::class, 'collegeId');
     }
 
     public function university()
     {
-        return $this->belongsTo(UniversityCollege::class, 'universityId');
+        return $this->belongsTo(University::class, 'universityId');
     }
+
+    //علاقة كليات الجامعة مع الاختصاصات
+
+     public function specializationUnivCollege()
+      {
+             return $this->hasMany(univercityCollegeSpecialization::class,'univercityCollegeID');
+     }
 }

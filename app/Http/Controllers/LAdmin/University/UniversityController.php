@@ -90,8 +90,17 @@ class UniversityController extends Controller
         $collegeID = $id;
         $universityID = $request->input('universityID');
 
-        $univercityCollege = UniversityCollege::where('universityId', $universityID)->where('collegeId', $collegeID)->delete();
+        UniversityCollege::where('universityId', $universityID)->where('collegeId', $collegeID)->delete();
 
         return redirect()->back()->with('success_message', 'University College Revoked Successfully');
+    }
+
+    //عرض الاختصاصات داخل الكلية
+    public function UniversityCollegeSpecializationIndex($id)
+    {
+        $universityID = $id;
+        $collegeIDs = UniversityCollege::where('universityId', $id)->pluck('collegeId');
+        $colleges = College::whereIn('id', $collegeIDs)->get();
+        return view('LocalAdmin.University.College.index', compact('colleges', 'universityID'));
     }
 }
