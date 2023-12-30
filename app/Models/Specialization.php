@@ -24,7 +24,7 @@ class Specialization extends Model
 
     //علاقة الاختصاصات مع الادمن
 
-    public function specialization()
+    public function GAdmin()
     {
         return $this->belongsTo(GAdmin::class, 'created_by');
     }

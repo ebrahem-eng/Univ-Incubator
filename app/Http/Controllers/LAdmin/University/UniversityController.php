@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\College;
 use App\Models\LAdminUniversity;
+use App\Models\Specialization;
+use App\Models\univercityCollegeSpecialization;
 use App\Models\University;
 use App\Models\UniversityCollege;
 use Illuminate\Http\Request;
@@ -95,12 +97,61 @@ class UniversityController extends Controller
         return redirect()->back()->with('success_message', 'University College Revoked Successfully');
     }
 
-    //عرض الاختصاصات داخل الكلية
-    public function UniversityCollegeSpecializationIndex($id)
+    //عرض الاختصاصات داخل الكلية الموجودة في الجامعة المحددة 
+
+    public function UniversityCollegeSpecializationIndex(Request $request, $id)
     {
-        $universityID = $id;
-        $collegeIDs = UniversityCollege::where('universityId', $id)->pluck('collegeId');
-        $colleges = College::whereIn('id', $collegeIDs)->get();
-        return view('LocalAdmin.University.College.index', compact('colleges', 'universityID'));
+        $collegeID = $id;
+        $universityID = $request->input('universityID');
+        $universityCollege = UniversityCollege::where('collegeId', $collegeID)->where('universityId', $universityID)->value('id');
+        $specializationIDs = univercityCollegeSpecialization::where('univercityCollegeID', $universityCollege)->pluck('specializationID');
+        $specializations = Specialization::whereIn('id', $specializationIDs)->get();
+        return view('LocalAdmin.University.College.Specialization.index', compact('specializations', 'universityID', 'universityCollege'));
+    }
+
+    //عرض صفحة اختيار اختصاص جديد لكلية للجامعة
+
+    public function chooseUniversityCollegeSpecialization($id)
+    {
+        $universityCollege = $id;
+        $specializations = Specialization::all();
+        return view('LocalAdmin.University.College.Specialization.chooseSpecialization', compact('specializations', 'universityCollege'));
+    }
+
+    //تخزين الاختصاص لكلية الجامعة في قاعدة البيانات 
+    public function storeChooseUniversityCollegeSpecialization(Request $request, $id)
+    {
+
+        $specializationID = $id;
+        $universityCollegeID = $request->input('universityCollege');
+
+
+        $existingRelation = univercityCollegeSpecialization::where('specializationID', $specializationID)
+            ->where('univercityCollegeID', $universityCollegeID)
+            ->first();
+
+        if (!$existingRelation) {
+
+            univercityCollegeSpecialization::create([
+                'specializationID' => $specializationID,
+                'univercityCollegeID' => $universityCollegeID,
+            ]);
+
+            return redirect()->back()->with('success_message', 'Specialization College Added Successfully');
+        } else {
+
+            return redirect()->back()->with('error_message', 'The relationship already exists');
+        }
+    }
+
+    //سحب اختصاص كلية من الجامعة
+
+    public function UniversityCollegeSpecializationRevoke(Request $request, $id)
+    {
+        $specializationID = $id;
+        $univercityCollegeID = $request->input('universityCollege');
+
+        univercityCollegeSpecialization::where('specializationID', $specializationID)->where('univercityCollegeID', $univercityCollegeID)->delete();
+        return redirect()->route('ladmin.university.index')->with('success_message', 'Specialization College Revoked Successfully');
     }
 }

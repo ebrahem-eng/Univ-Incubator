@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>University College Table</title>
+    <title>Choose Specialization College University</title>
     <!-- Simple bar CSS -->
 
     @include('layouts.LocalAdmin.LinkHeader')
@@ -28,7 +28,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <h2 class="mb-2 page-title">University College Table </h2>
+                        <h2 class="mb-2 page-title">Specializations Table </h2>
 
                         <div class="row my-4">
                             <!-- Small table -->
@@ -45,19 +45,21 @@
                                     </div>
                                 @endif
 
+                                @if (session('error_message'))
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {{ session('error_message') }}
+                                </div>
+                            @endif
+
                                 {{-- end  message Section --}}
 
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <!-- table -->
                                         <div class="table-responsive">
-
-                                            <a style="color: white"
-                                                href="{{ route('ladmin.university.choose.college', $universityID) }}"
-                                                class="btn btn-primary">Choose New College</a>
-                                            <br>
-                                            <br>
-
                                             <table class="table datatables" id="dataTable-1">
                                                 <thead>
                                                     <tr>
@@ -73,7 +75,7 @@
                                                 </thead>
                                                 <tbody>
 
-                                                    @foreach ($colleges as $college)
+                                                    @foreach ($specializations as $specialization)
                                                         <tr>
                                                             <td>
                                                                 <div class="custom-control custom-checkbox">
@@ -81,48 +83,27 @@
                                                                     <label class="custom-control-label"></label>
                                                                 </div>
                                                             </td>
-                                                            <td>{{ $college->id }}</td>
-                                                            <td>{{ $college->name }}</td>
+                                                            <td>{{ $specialization->id }}</td>
+                                                            <td>{{ $specialization->name }}</td>
                                                             <td>
-                                                                <img src="{{ asset('Image/' . $college->img) }}"
+                                                                <img src="{{ asset('Image/' . $specialization->img) }}"
                                                                     style="width: 100px; height: 100px;">
                                                             </td>
 
-                                                            <td>{{ $college->GAdmin->name }}</td>
-                                                            <td>{{ $college->created_at }}</td>
-                                                            <td>{{ $college->updated_at }}</td>
+                                                            <td>{{ $specialization->GAdmin->name }}</td>
+                                                            <td>{{ $specialization->created_at }}</td>
+                                                            <td>{{ $specialization->updated_at }}</td>
                                                             <td>
-                                                                <div class="row">
-                                                                    <form
-                                                                        action="{{ route('ladmin.university.college.specialization.index', $college->id) }}"
-                                                                        method="POST">
-                                                                        @csrf
-                                                                        @method('delete')
-                                                                        <button class="btn btn-success" style="margin-right: 30px;">
-                                                                            Specializations
-                                                                        </button>
-                                                                        <input type="hidden"
-                                                                            value="{{ $universityID }}"
-                                                                            name="universityID">
-                                                                       
-                                                                    </form>
-
-                                                                    <form
-                                                                        action="{{ route('ladmin.university.college.revoke', $college->id) }}"
-                                                                        method="POST">
-                                                                        @csrf
-                                                                        @method('delete')
-                                                                        <button class="btn btn-danger">
-                                                                            Revoke
-                                                                        </button>
-                                                                        <input type="hidden"
-                                                                            value="{{ $universityID }}"
-                                                                            name="universityID">
-                                                                    </form>
-                                                                </div>
-
-
-
+                                                                <form
+                                                                    action="{{ route('ladmin.university.college.specialization.choose.store', $specialization->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    <button class="btn btn-success">
+                                                                        Choose
+                                                                    </button>
+                                                                    <input type="hidden" value="{{ $universityCollege }}"
+                                                                        name="universityCollege">
+                                                                </form>
 
                                                             </td>
                                                         </tr>

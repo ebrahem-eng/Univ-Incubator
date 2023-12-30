@@ -17,7 +17,7 @@ class College extends Model
 
     //علاقة الكليات مع المسؤولين 
 
-    public function Ladmin()
+    public function Gadmin()
     {
         return $this->belongsTo(GAdmin::class, 'created_by');
     }

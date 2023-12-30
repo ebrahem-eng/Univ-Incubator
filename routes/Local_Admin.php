@@ -31,12 +31,14 @@ Route::post('ladmin/logout', [AuthController::class, 'logout'])->name('ladmin.lo
 Route::middleware(['ladmin'])->name('ladmin.')->prefix('ladmin')->group(function () {
 
     //================================= University route Section ==========================
-  
+
     Route::get('/university/index', [UniversityController::class, 'index'])->name('university.index');
 
     Route::get('/university/edit/address/{id}', [UniversityController::class, 'editAddress'])->name('university.edit.address');
-  
+
     Route::put('/university/update/address/{id}', [UniversityController::class, 'updateAddress'])->name('university.update.address');
+
+    //================================= University College route Section ==========================
 
     Route::get('/university/college/index/{id}', [UniversityController::class, 'universityCollegeIndex'])->name('university.college.index');
 
@@ -46,6 +48,13 @@ Route::middleware(['ladmin'])->name('ladmin.')->prefix('ladmin')->group(function
 
     Route::delete('/university/college/revoke/{id}', [UniversityController::class, 'UniversityCollegeRevoke'])->name('university.college.revoke');
 
+    //================================= University College Specialization route Section ==========================
+
     Route::delete('/university/college/specialization/index/{id}', [UniversityController::class, 'UniversityCollegeSpecializationIndex'])->name('university.college.specialization.index');
 
+    Route::get('/university/choose/college/specialization/{id}', [UniversityController::class, 'chooseUniversityCollegeSpecialization'])->name('university.college.specialization.choose');
+
+    Route::post('/university/store/choose/college/specialization/{id}', [UniversityController::class, 'storeChooseUniversityCollegeSpecialization'])->name('university.college.specialization.choose.store');
+
+    Route::delete('/university/college/specialization/revoke/{id}', [UniversityController::class, 'UniversityCollegeSpecializationRevoke'])->name('university.college.specialization.revoke');
 });
