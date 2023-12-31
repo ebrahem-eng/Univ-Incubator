@@ -56,4 +56,11 @@ class University extends Model
     {
         return $this->hasMany(UniversityCollege::class, 'universityId');
     }
+
+     //علاقة الجامعات مع الاعلانات
+
+     public function univAds()
+     {
+         return $this->hasMany(UniversityCollegeAds::class, 'universityId');
+     }
 }

@@ -28,4 +28,11 @@ class College extends Model
     {
         return $this->hasMany(UniversityCollege::class, 'collegeId');
     }
+
+     //علاقة الكليات مع الاعلانات
+
+     public function collegeAds()
+     {
+         return $this->hasMany(universityAdsCollege::class, 'collegeID');
+     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LAdmin\Ads\AdsController;
 use App\Http\Controllers\LAdmin\Auth\AuthController;
 use App\Http\Controllers\LAdmin\LAdminController;
 use App\Http\Controllers\LAdmin\University\UniversityController;
@@ -57,4 +58,41 @@ Route::middleware(['ladmin'])->name('ladmin.')->prefix('ladmin')->group(function
     Route::post('/university/store/choose/college/specialization/{id}', [UniversityController::class, 'storeChooseUniversityCollegeSpecialization'])->name('university.college.specialization.choose.store');
 
     Route::delete('/university/college/specialization/revoke/{id}', [UniversityController::class, 'UniversityCollegeSpecializationRevoke'])->name('university.college.specialization.revoke');
+
+
+    //================================= University And College Ads route Section ==========================
+
+    Route::get('/ads/index', [AdsController::class, 'index'])->name('ads.index');
+
+    Route::get('/ads/create', [AdsController::class, 'create'])->name('ads.create');
+
+    Route::post('/ads/store', [AdsController::class, 'store'])->name('ads.store');
+
+    Route::get('/ads/edit/{id}', [AdsController::class, 'edit'])->name('ads.edit');
+
+    Route::put('/ads/update/{id}', [AdsController::class, 'update'])->name('ads.update');
+
+    Route::get('/ads/archive', [AdsController::class, 'archive'])->name('ads.archive');
+
+    Route::delete('/ads/softDelete/{id}', [AdsController::class, 'softDelete'])->name('ads.soft.delete');
+
+    Route::get('/ads/restore/{id}', [AdsController::class, 'restore'])->name('ads.restore');
+
+    Route::delete('/ads/forceDelete/{id}', [AdsController::class, 'forceDelete'])->name('ads.force.delete');
+
+    Route::get('/ads/university/{id}', [AdsController::class, 'adsUniversity'])->name('ads.university');
+
+    Route::get('/ads/university/choose/{id}', [AdsController::class, 'chooseUniversity'])->name('ads.choose.university');
+
+    Route::post('/ads/university/choose/store/{id}', [AdsController::class, 'storeChooseUniversity'])->name('ads.store.choose.university');
+
+    Route::delete('/ads/university/revoke/{id}', [AdsController::class, 'revokeUniversity'])->name('ads.university.revoke');
+
+    Route::get('/ads/college/university/{id}', [AdsController::class, 'adsCollegeUniversity'])->name('ads.college.university');
+
+    Route::get('/ads/choose/college/university/{id}', [AdsController::class, 'adsChooseCollegeUniversity'])->name('ads.choose.college.university');
+
+    Route::post('/ads/store/choose/college/university/{id}', [AdsController::class, 'adsStoreChooseCollegeUniversity'])->name('ads.store.choose.college.university');
+
+    Route::delete('/ads/college/university/revoke/{id}', [AdsController::class, 'adsCollegeUniversityRevoke'])->name('ads.college.university.revoke');
 });

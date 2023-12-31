@@ -28,9 +28,12 @@ class DatabaseSeeder extends Seeder
         $this->call(AddressSeeder::class);
         $this->call(CatigorySeeder::class);
         $this->call(UniversitySeeder::class);
+        $this->call(LAdminUniversitySeeder::class);
         $this->call(CollegeSeeder::class);
         $this->call(UniversityCollegeSeeder::class);
         $this->call(SpecializationSeeder::class);
         $this->call(UniversityCollegeSpecializationSeeder::class);
+        $this->call(AdsSeeder::class);
+        $this->call(UniversityAdsSeeder::class);
     }
 }
