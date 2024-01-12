@@ -42,7 +42,7 @@
                             d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z" />
                     </svg>
 
-                    <span class="ml-3 item-text">University Managment</span><span class="sr-only"></span>
+                    <span class="ml-3 item-text">University Manage</span><span class="sr-only"></span>
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="dashboard">
                     <li class="nav-item active">
@@ -75,7 +75,7 @@
                             d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
                     </svg>
 
-                    <span class="ml-3 item-text">Ads Managment</span><span class="sr-only"></span>
+                    <span class="ml-3 item-text">Ads Manage</span><span class="sr-only"></span>
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
                     <li class="nav-item active">
@@ -99,36 +99,59 @@
         </ul>
 
         <p class="text-muted nav-heading mt-4 mb-1">
-            <span>Authorization</span>
+            <span></span>
         </p>
         <br>
 
 
-        <ul class="navbar-nav flex-fill w-100 mb-2">
-
-            <li class="nav-item w-100">
-
-                <a class="nav-link pl-3" href="{{ route('gadmin.roles.index') }}">
-                    <i class="fe fe-lock fe-16"></i>
-                    <span class="ml-3 item-text">Role</span>
-
-                </a>
-
+     <!-- Teaching Staff Management -->
+<ul class="navbar-nav flex-fill w-100 mb-2">
+    <li class="nav-item dropdown">
+        <a href="#teaching-staff-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+                <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5"/>
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              </svg>
+            <span class="ml-3 item-text">Teaching Staff Manage</span><span class="sr-only"></span>
+        </a>
+        <ul class="collapse list-unstyled pl-4 w-100" id="teaching-staff-elements">
+            <li class="nav-item active">
+                <a class="nav-link pl-3" href="{{ route('ladmin.teachingStaff.index') }}"><span class="ml-1 item-text">Teaching Staff Table</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('ladmin.teachingStaff.create') }}"><span class="ml-1 item-text">Add Teaching Staff</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('ladmin.teachingStaff.archive') }}"><span class="ml-1 item-text">Teaching Staff Archive</span></a>
             </li>
         </ul>
+    </li>
+</ul>
 
-        <ul class="navbar-nav flex-fill w-100 mb-2">
-
-            <li class="nav-item w-100">
-
-                <a class="nav-link pl-3" href="{{ route('gadmin.permissions.index') }}">
-                    <i class="fe fe-key fe-16"></i>
-                    <span class="ml-3 item-text">Permission</span>
-
-                </a>
-
+<!-- Ads Management -->
+{{-- <ul class="navbar-nav flex-fill w-100 mb-2">
+    <li class="nav-item dropdown">
+        <a href="#ads-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
+                class="bi bi-person-gear" viewBox="0 0 14 14">
+                <!-- Ads Management icon -->
+            </svg>
+            <span class="ml-3 item-text">Ads Management</span><span class="sr-only"></span>
+        </a>
+        <ul class="collapse list-unstyled pl-4 w-100" id="ads-elements">
+            <li class="nav-item active">
+                <a class="nav-link pl-3" href="{{ route('ladmin.ads.index') }}"><span class="ml-1 item-text">Ads Table</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('ladmin.ads.create') }}"><span class="ml-1 item-text">Add Ads</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('ladmin.ads.archive') }}"><span class="ml-1 item-text">Ads Archive</span></a>
             </li>
         </ul>
+    </li>
+</ul> --}}
+
 
 
 

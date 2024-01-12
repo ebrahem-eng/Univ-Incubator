@@ -3,6 +3,7 @@
 use App\Http\Controllers\LAdmin\Ads\AdsController;
 use App\Http\Controllers\LAdmin\Auth\AuthController;
 use App\Http\Controllers\LAdmin\LAdminController;
+use App\Http\Controllers\LAdmin\TeachingStaff\TeachingStaffController;
 use App\Http\Controllers\LAdmin\University\UniversityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -95,4 +96,27 @@ Route::middleware(['ladmin'])->name('ladmin.')->prefix('ladmin')->group(function
     Route::post('/ads/store/choose/college/university/{id}', [AdsController::class, 'adsStoreChooseCollegeUniversity'])->name('ads.store.choose.college.university');
 
     Route::delete('/ads/college/university/revoke/{id}', [AdsController::class, 'adsCollegeUniversityRevoke'])->name('ads.college.university.revoke');
+
+
+        //================================= University College Teachig Staff route Section ==========================
+
+
+        Route::get('/teachingStaff/index', [TeachingStaffController::class, 'index'])->name('teachingStaff.index');
+
+        Route::get('/teachingStaff/create', [TeachingStaffController::class, 'create'])->name('teachingStaff.create');
+    
+        Route::post('/teachingStaff/store', [TeachingStaffController::class, 'store'])->name('teachingStaff.store');
+    
+        Route::get('/teachingStaff/edit/{id}', [TeachingStaffController::class, 'edit'])->name('teachingStaff.edit');
+    
+        Route::put('/teachingStaff/update/{id}', [TeachingStaffController::class, 'update'])->name('teachingStaff.update');
+    
+        Route::get('/teachingStaff/archive', [TeachingStaffController::class, 'archive'])->name('teachingStaff.archive');
+    
+        Route::delete('/teachingStaff/softDelete/{id}', [TeachingStaffController::class, 'softDelete'])->name('teachingStaff.soft.delete');
+    
+        Route::get('/teachingStaff/restore/{id}', [TeachingStaffController::class, 'restore'])->name('teachingStaff.restore');
+    
+        Route::delete('/teachingStaff/forceDelete/{id}', [TeachingStaffController::class, 'forceDelete'])->name('teachingStaff.force.delete');
+
 });

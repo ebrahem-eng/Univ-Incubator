@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\GAdmin\Auth\AuthController;
+use App\Http\Controllers\GAdmin\College\CollegeController;
 use App\Http\Controllers\GAdmin\GAdminController;
 use App\Http\Controllers\GAdmin\LocalAdmin\LAdminController;
 use App\Http\Controllers\GAdmin\Permission\PermissionController;
 use App\Http\Controllers\GAdmin\Role\RoleController;
+use App\Http\Controllers\GAdmin\Specialization\SpecializationController;
 use App\Http\Controllers\GAdmin\University\UniversityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -108,4 +110,53 @@ Route::middleware(['gadmin'])->name('gadmin.')->prefix('gadmin')->group(function
   Route::post('/permissions/{permission}/roles', [PermissionController::class, 'giverole'])->name('permissions.roles');
   Route::delete('/permissions/{permission}/roles/{role}', [PermissionController::class, 'removepermission'])->name('permissions.roles.remove');
   Route::resource('/permissions', PermissionController::class);
+
+
+  //=================================College route Section==========================
+
+  Route::get('/college/index', [CollegeController::class, 'index'])->name('college.index');
+
+  Route::get('/college/create', [CollegeController::class, 'create'])->name('college.create');
+
+  Route::post('/college/store', [CollegeController::class, 'store'])->name('college.store');
+
+  Route::get('/college/edit/{id}', [CollegeController::class, 'edit'])->name('college.edit');
+
+  Route::get('/college/edit/address/{id}', [CollegeController::class, 'editAddress'])->name('college.edit.address');
+
+  Route::put('/college/update/{id}', [CollegeController::class, 'update'])->name('college.update');
+
+  Route::put('/college/update/address/{id}', [CollegeController::class, 'updateAddress'])->name('college.update.address');
+
+  Route::get('/college/archive', [CollegeController::class, 'archive'])->name('college.archive');
+
+  Route::delete('/college/softDelete/{id}', [CollegeController::class, 'softDelete'])->name('college.soft.delete');
+
+  Route::get('/college/restore/{id}', [CollegeController::class, 'restore'])->name('college.restore');
+
+  Route::delete('/college/forceDelete/{id}', [CollegeController::class, 'forceDelete'])->name('college.force.delete');
+
+  //=================================Specialization route Section==========================
+
+  Route::get('/specialization/index', [SpecializationController::class, 'index'])->name('specialization.index');
+
+  Route::get('/specialization/create', [SpecializationController::class, 'create'])->name('specialization.create');
+
+  Route::post('/specialization/store', [SpecializationController::class, 'store'])->name('specialization.store');
+
+  Route::get('/specialization/edit/{id}', [SpecializationController::class, 'edit'])->name('specialization.edit');
+
+  Route::get('/specialization/edit/address/{id}', [SpecializationController::class, 'editAddress'])->name('specialization.edit.address');
+
+  Route::put('/specialization/update/{id}', [SpecializationController::class, 'update'])->name('specialization.update');
+
+  Route::put('/specialization/update/address/{id}', [SpecializationController::class, 'updateAddress'])->name('specialization.update.address');
+
+  Route::get('/specialization/archive', [SpecializationController::class, 'archive'])->name('specialization.archive');
+
+  Route::delete('/specialization/softDelete/{id}', [SpecializationController::class, 'softDelete'])->name('specialization.soft.delete');
+
+  Route::get('/specialization/restore/{id}', [SpecializationController::class, 'restore'])->name('specialization.restore');
+
+  Route::delete('/specialization/forceDelete/{id}', [SpecializationController::class, 'forceDelete'])->name('specialization.force.delete');
 });

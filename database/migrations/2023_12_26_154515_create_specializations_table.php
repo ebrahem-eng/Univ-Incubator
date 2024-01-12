@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('img');
             $table->foreignId('created_by')->references('id')->on('g_admins');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

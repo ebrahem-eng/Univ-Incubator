@@ -30,4 +30,11 @@ class UniversityCollege extends Model
       {
              return $this->hasMany(univercityCollegeSpecialization::class,'univercityCollegeID');
      }
+
+        //علاقة كليات الجامعة مع الكادر التدريسي
+
+        public function teachingStaff()
+        {
+               return $this->hasMany(TeachingStaff::class,'univercityCollegeID');
+       }
 }
