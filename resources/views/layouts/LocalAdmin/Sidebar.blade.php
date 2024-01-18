@@ -128,31 +128,31 @@
     </li>
 </ul>
 
-<!-- Ads Management -->
-{{-- <ul class="navbar-nav flex-fill w-100 mb-2">
+<!-- Event Management -->
+<ul class="navbar-nav flex-fill w-100 mb-2">
     <li class="nav-item dropdown">
         <a href="#ads-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
-                class="bi bi-person-gear" viewBox="0 0 14 14">
-                <!-- Ads Management icon -->
+                class="bi bi-calendar-event" viewBox="0 0 14 14">
+                <!-- Event icon -->
+                <path d="M1 2a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm1 0v11h11V2H2z"/>
+                <path d="M0 0h14v2H0V0z"/>
             </svg>
-            <span class="ml-3 item-text">Ads Management</span><span class="sr-only"></span>
+            <span class="ml-3 item-text">Event Management</span><span class="sr-only"></span>
         </a>
         <ul class="collapse list-unstyled pl-4 w-100" id="ads-elements">
             <li class="nav-item active">
-                <a class="nav-link pl-3" href="{{ route('ladmin.ads.index') }}"><span class="ml-1 item-text">Ads Table</span></a>
+                <a class="nav-link pl-3" href="{{ route('ladmin.event.index') }}"><span class="ml-1 item-text">Event Table</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('ladmin.ads.create') }}"><span class="ml-1 item-text">Add Ads</span></a>
+                <a class="nav-link pl-3" href="{{ route('ladmin.event.create') }}"><span class="ml-1 item-text">Add Event</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('ladmin.ads.archive') }}"><span class="ml-1 item-text">Ads Archive</span></a>
+                <a class="nav-link pl-3" href="{{ route('ladmin.event.archive') }}"><span class="ml-1 item-text">Event Archive</span></a>
             </li>
         </ul>
     </li>
-</ul> --}}
-
-
+</ul>
 
 
         <p class="text-muted nav-heading mt-4 mb-1">

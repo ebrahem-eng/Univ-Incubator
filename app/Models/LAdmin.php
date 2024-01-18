@@ -62,6 +62,13 @@ class LAdmin extends Authenticatable
             return $this->hasMany(TeachingStaff::class,'created_by');
         }
 
+        //علاقة المسؤول المحلي مع الفعاليات
+
+       public function event()
+       {
+           return $this->hasMany(Event::class,'created_by');
+       }
+
 
     //    //علاقة المسؤول المحلي مع الكليات
 

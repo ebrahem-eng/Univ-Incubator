@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>Teaching Staff Table</title>
+    <title>Event Archive Table</title>
     <!-- Simple bar CSS -->
 
     @include('layouts.LocalAdmin.LinkHeader')
@@ -28,7 +28,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <h2 class="mb-2 page-title">Teaching Staff Table </h2>
+                        <h2 class="mb-2 page-title">Event Archive Table </h2>
 
                         <div class="row my-4">
                             <!-- Small table -->
@@ -67,23 +67,23 @@
                                                         <th></th>
                                                         <th>#</th>
                                                         <th>Name</th>
-                                                        <th>Email</th>
-                                                        <th>Age</th>
-                                                        <th>Gender</th>
+                                                        <th>Day Name</th>
+                                                        <th>Event Date</th>
+                                                        <th>Event Time</th>
+                                                        <th>Details</th>
                                                         <th>Status</th>
-                                                        <th>Designation</th>
                                                         <th>University Name</th>
                                                         <th>College Name</th>
-                                                        <th>Image</th>
                                                         <th>Created By</th>
                                                         <th>Created Date</th>
                                                         <th>Last Updated Date</th>
+                                                        <th>Deleted Date</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
-                                                    @foreach ($teachingStaffs as $teachingStaff)
+                                                    @foreach ($events as $event)
                                                         <tr>
                                                             <td>
                                                                 <div class="custom-control custom-checkbox">
@@ -91,39 +91,31 @@
                                                                     <label class="custom-control-label"></label>
                                                                 </div>
                                                             </td>
-                                                            <td>{{ $teachingStaff->id }}</td>
-                                                            <td>{{ $teachingStaff->name }}</td>
-                                                            <td>{{ $teachingStaff->email }}</td>
-                                                            <td>{{ $teachingStaff->age }}</td>
+                                                            <td>{{ $event->id }}</td>
+                                                            <td>{{ $event->name }}</td>
+                                                            <td>{{ $event->dayName }}</td>
+                                                            <td>{{ $event->eventDate }}</td>
+                                                            <td>{{ $event->eventTime }}</td>
+                                                            <td>{{ $event->details }}</td>
                                                             <td>
-                                                                @if($teachingStaff->gender == 1)
-                                                                Male
-                                                                @else
-                                                                Female
-                                                                @endif
-                                                            </td>
-                                                            <td>
-                                                                @if ($teachingStaff->status == 1)
-                                                                    <span class="badge badge-success">Active</span>
-                                                                @elseif($teachingStaff->status == 0)
-                                                                    <span class="badge badge-danger">Not Active</span>
+                                                                @if ($event->status == 0)
+                                                                    <span class="badge badge-primary">Pending</span>
+                                                                @elseif($event->status == 1)
+                                                                    <span class="badge badge-success">Done</span>
+                                                                    @elseif($event->status == 2)
+                                                                    <span class="badge badge-danger">Canceled</span>
                                                                 @endif
 
                                                             </td>
-                                                            <td>{{ $teachingStaff->Designation }}</td>
+                                                        
+                                                            <td>{{ $event->univCollege->university->name }}</td>
 
-                                                            <td>{{ $teachingStaff->univCollege->university->name }}</td>
+                                                            <td>{{ $event->univCollege->college->name }}</td>
 
-                                                            <td>{{ $teachingStaff->univCollege->college->name }}</td>
-
-                                                            <td>
-                                                                <img src="{{ asset('Image/' . $teachingStaff->img) }}"
-                                                                    style="width: 100px; height: 100px;">
-                                                            </td>
-
-                                                            <td>{{ $teachingStaff->ladmin->name }}</td>
-                                                            <td>{{ $teachingStaff->created_at }}</td>
-                                                            <td>{{ $teachingStaff->updated_at }}</td>
+                                                            <td>{{ $event->ladmin->name }}</td>
+                                                            <td>{{ $event->created_at }}</td>
+                                                            <td>{{ $event->updated_at }}</td>
+                                                            <td>{{ $event->deleted_at }}</td>
                                                             <td><button
                                                                     class="btn btn-sm dropdown-toggle more-horizontal"
                                                                     type="button" data-toggle="dropdown"
@@ -132,16 +124,16 @@
                                                                 </button>
                                                                 <div class="dropdown-menu dropdown-menu-right">
                                                                     <a class="dropdown-item"
-                                                                        href="{{ route('ladmin.teachingStaff.edit', $teachingStaff->id) }}">Edit</a>
+                                                                        href="{{ route('ladmin.event.restore', $event->id) }}">Restore</a>
                                                                     <form
-                                                                        action="{{ route('ladmin.teachingStaff.soft.delete', $teachingStaff->id) }}"
+                                                                        action="{{ route('ladmin.event.force.delete', $event->id) }}"
                                                                         method="POST">
                                                                         @csrf
                                                                         @method('delete')
                                                                         <button class="dropdown-item"
                                                                             type="submit">Delete</button>
                                                                     </form>
-                                             
+                                                             
                                                                 </div>
                                                             </td>
                                                         </tr>

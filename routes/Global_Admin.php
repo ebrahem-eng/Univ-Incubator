@@ -89,17 +89,22 @@ Route::middleware(['gadmin'])->name('gadmin.')->prefix('gadmin')->group(function
   Route::delete('/ladmin/forceDelete/{id}', [LAdminController::class, 'forceDelete'])->name('ladmin.force.delete');
 
   Route::get('/ladmin/{ladmin}', [LAdminController::class, 'show'])->name('ladmin.show.roles');
+
   Route::post('/ladmin/{ladmin}/roles', [LAdminController::class, 'assignrole'])->name('ladmin.roles');
+
   Route::delete('/ladmin/{ladmin}/roles/{role}', [LAdminController::class, 'removerole'])->name('ladmin.roles.remove');
 
   Route::post('/ladmin/{ladmin}/permissions', [LAdminController::class, 'givepermission'])->name('ladmin.permissions');
+
   Route::delete('/ladmin/{ladmin}/permissions/{permission}', [LAdminController::class, 'revokepermission'])->name('ladmin.permissions.revoke');
 
 
   //============================== Admin Role =====================================
 
   Route::get('/roles/givepermission/{role}', [RoleController::class, 'go_to_give_permissions'])->name('go.roles.permissions');
+
   Route::post('/roles/{role}/permissions', [RoleController::class, 'givepermission'])->name('roles.permissions');
+  
   Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokepermission'])->name('roles.permissions.revoke');
 
   Route::resource('/roles', RoleController::class);
@@ -107,8 +112,11 @@ Route::middleware(['gadmin'])->name('gadmin.')->prefix('gadmin')->group(function
   //============================== Admin Permission =================================
 
   Route::get('/permissions/giveroles/{permission}', [PermissionController::class, 'go_to_give_permissions'])->name('go.permissions.roles');
+
   Route::post('/permissions/{permission}/roles', [PermissionController::class, 'giverole'])->name('permissions.roles');
+
   Route::delete('/permissions/{permission}/roles/{role}', [PermissionController::class, 'removepermission'])->name('permissions.roles.remove');
+
   Route::resource('/permissions', PermissionController::class);
 
 

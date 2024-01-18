@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>Teaching Staff Table</title>
+    <title>Event Image Table</title>
     <!-- Simple bar CSS -->
 
     @include('layouts.LocalAdmin.LinkHeader')
@@ -28,7 +28,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <h2 class="mb-2 page-title">Teaching Staff Table </h2>
+                        <h2 class="mb-2 page-title">Event Image Table </h2>
 
                         <div class="row my-4">
                             <!-- Small table -->
@@ -61,29 +61,26 @@
                                         <!-- table -->
                                         <div class="table-responsive">
 
+                                            <a style="color: white"
+                                            href="{{ route('ladmin.event.image.create', $eventID) }}"
+                                            class="btn btn-primary">Add Image</a>
+                                            <br>
+                                            <br>
+                                            
                                             <table class="table datatables" id="dataTable-1">
                                                 <thead>
                                                     <tr>
                                                         <th></th>
                                                         <th>#</th>
-                                                        <th>Name</th>
-                                                        <th>Email</th>
-                                                        <th>Age</th>
-                                                        <th>Gender</th>
-                                                        <th>Status</th>
-                                                        <th>Designation</th>
-                                                        <th>University Name</th>
-                                                        <th>College Name</th>
                                                         <th>Image</th>
-                                                        <th>Created By</th>
+                                                        <th>Details</th>
                                                         <th>Created Date</th>
-                                                        <th>Last Updated Date</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
-                                                    @foreach ($teachingStaffs as $teachingStaff)
+                                                    @foreach ($eventImages as $eventImage)
                                                         <tr>
                                                             <td>
                                                                 <div class="custom-control custom-checkbox">
@@ -91,39 +88,16 @@
                                                                     <label class="custom-control-label"></label>
                                                                 </div>
                                                             </td>
-                                                            <td>{{ $teachingStaff->id }}</td>
-                                                            <td>{{ $teachingStaff->name }}</td>
-                                                            <td>{{ $teachingStaff->email }}</td>
-                                                            <td>{{ $teachingStaff->age }}</td>
+                                                            <td>{{ $eventImage->id }}</td>
+                                                 
                                                             <td>
-                                                                @if($teachingStaff->gender == 1)
-                                                                Male
-                                                                @else
-                                                                Female
-                                                                @endif
-                                                            </td>
-                                                            <td>
-                                                                @if ($teachingStaff->status == 1)
-                                                                    <span class="badge badge-success">Active</span>
-                                                                @elseif($teachingStaff->status == 0)
-                                                                    <span class="badge badge-danger">Not Active</span>
-                                                                @endif
-
-                                                            </td>
-                                                            <td>{{ $teachingStaff->Designation }}</td>
-
-                                                            <td>{{ $teachingStaff->univCollege->university->name }}</td>
-
-                                                            <td>{{ $teachingStaff->univCollege->college->name }}</td>
-
-                                                            <td>
-                                                                <img src="{{ asset('Image/' . $teachingStaff->img) }}"
+                                                                <img src="{{ asset('Image/' . $eventImage->img) }}"
                                                                     style="width: 100px; height: 100px;">
                                                             </td>
 
-                                                            <td>{{ $teachingStaff->ladmin->name }}</td>
-                                                            <td>{{ $teachingStaff->created_at }}</td>
-                                                            <td>{{ $teachingStaff->updated_at }}</td>
+                                                            <td>{{ $eventImage->details }}</td>
+                                                            <td>{{ $eventImage->created_at }}</td>
+                                                  
                                                             <td><button
                                                                     class="btn btn-sm dropdown-toggle more-horizontal"
                                                                     type="button" data-toggle="dropdown"
@@ -131,10 +105,9 @@
                                                                     <span class="text-muted sr-only">Action</span>
                                                                 </button>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item"
-                                                                        href="{{ route('ladmin.teachingStaff.edit', $teachingStaff->id) }}">Edit</a>
+                                                                   
                                                                     <form
-                                                                        action="{{ route('ladmin.teachingStaff.soft.delete', $teachingStaff->id) }}"
+                                                                        action="{{ route('ladmin.event.image.delete', $eventImage->id) }}"
                                                                         method="POST">
                                                                         @csrf
                                                                         @method('delete')
