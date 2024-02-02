@@ -4,6 +4,7 @@ use App\Http\Controllers\LAdmin\Ads\AdsController;
 use App\Http\Controllers\LAdmin\Auth\AuthController;
 use App\Http\Controllers\LAdmin\Event\EventController;
 use App\Http\Controllers\LAdmin\LAdminController;
+use App\Http\Controllers\LAdmin\StudyFees\StudyFeesController;
 use App\Http\Controllers\LAdmin\TeachingStaff\TeachingStaffController;
 use App\Http\Controllers\LAdmin\University\UniversityController;
 use App\Http\Controllers\ProfileController;
@@ -153,4 +154,28 @@ Route::middleware(['ladmin'])->name('ladmin.')->prefix('ladmin')->group(function
     Route::post('/event/Image/store', [EventController::class, 'eventImageStore'])->name('event.image.store');
 
     Route::delete('/event/Image/delete/{id}', [EventController::class, 'eventImageDelete'])->name('event.image.delete');
+
+
+
+
+    //================================= University College Study Fees route Section ==========================
+
+
+    Route::get('/studyFees/index', [StudyFeesController::class, 'index'])->name('studyFees.index');
+
+    Route::get('/studyFees/create', [StudyFeesController::class, 'create'])->name('studyFees.create');
+
+    Route::post('/studyFees/store', [StudyFeesController::class, 'store'])->name('studyFees.store');
+
+    Route::get('/studyFees/edit/{id}', [StudyFeesController::class, 'edit'])->name('studyFees.edit');
+
+    Route::put('/studyFees/update/{id}', [StudyFeesController::class, 'update'])->name('studyFees.update');
+
+    Route::get('/studyFees/archive', [StudyFeesController::class, 'archive'])->name('studyFees.archive');
+
+    Route::delete('/studyFees/softDelete/{id}', [StudyFeesController::class, 'softDelete'])->name('studyFees.soft.delete');
+
+    Route::get('/studyFees/restore/{id}', [StudyFeesController::class, 'restore'])->name('studyFees.restore');
+
+    Route::delete('/studyFees/forceDelete/{id}', [StudyFeesController::class, 'forceDelete'])->name('studyFees.force.delete');
 });

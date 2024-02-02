@@ -37,5 +37,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UniversityAdsSeeder::class);
         $this->call(TeachingStaffSeeder::class);
         $this->call(EventSeeder::class);
+        $this->call(StudyFeesSeeder::class);
     }
 }

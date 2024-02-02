@@ -44,4 +44,11 @@ class UniversityCollege extends Model
           {
                  return $this->hasMany(Event::class,'univercityCollegeID');
          }
+
+            //علاقة كليات الجامعة مع الرسوم الدراسية
+
+            public function studyFees()
+            {
+                   return $this->hasMany(studyFees::class,'univercityCollegeID');
+           }
 }

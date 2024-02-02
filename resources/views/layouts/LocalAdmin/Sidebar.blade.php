@@ -154,6 +154,33 @@
     </li>
 </ul>
 
+<!-- Study Fees Management -->
+<ul class="navbar-nav flex-fill w-100 mb-2">
+    <li class="nav-item dropdown">
+        <a href="#study-fees-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
+            class="bi bi-cash" viewBox="0 0 14 14">
+            <!-- Cash icon -->
+            <path d="M7 1a7 7 0 1 1 0 14A7 7 0 0 1 7 1zM7 0a1 1 0 0 1 1 1v11a1 1 0 0 1-2 0V1a1 1 0 0 1 1-1z"/>
+            <path d="M7 1V0a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0z"/>
+        </svg>
+            <span class="ml-3 item-text">Study Fees Management</span><span class="sr-only"></span>
+        </a>
+        <ul class="collapse list-unstyled pl-4 w-100" id="study-fees-elements">
+            <li class="nav-item active">
+                <a class="nav-link pl-3" href="{{ route('ladmin.studyFees.index') }}"><span class="ml-1 item-text">StudyFees Table</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('ladmin.studyFees.create') }}"><span class="ml-1 item-text">Add StudyFees</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('ladmin.studyFees.archive') }}"><span class="ml-1 item-text">StudyFees Archive</span></a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
 
         <p class="text-muted nav-heading mt-4 mb-1">
             <span>Authuntication</span>
