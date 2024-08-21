@@ -12,14 +12,14 @@ use Spatie\Permission\Traits\HasRoles;
 
 class LAdmin extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , HasRoles , SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $guard ='ladmin';
+    protected $guard = 'ladmin';
     protected $fillable = [
         'name',
         'email',
@@ -32,50 +32,38 @@ class LAdmin extends Authenticatable
         'created_by',
     ];
 
-     //علاقة المسؤول المحلي مع المسؤولين العامين
+    //علاقة المسؤول المحلي مع المسؤولين العامين
 
-     public function Gadmin()
-     {
-         return $this->belongsTo(GAdmin::class, 'created_by');
-     }
+    public function Gadmin()
+    {
+        return $this->belongsTo(GAdmin::class, 'created_by');
+    }
 
 
-      //علاقة المسؤول المحلي مع الجامعات
+    //علاقة المسؤول المحلي مع الجامعات
 
     public function university()
     {
-        return $this->hasMany(LAdminUniversity::class,'ladminID');
+        return $this->hasMany(LAdminUniversity::class, 'ladminID');
     }
 
-       //علاقة المسؤول المحلي مع الاعلانات
 
-       public function ads()
-       {
-           return $this->hasMany(Ads::class,'created_by');
-       }
+    //علاقة المسؤول المحلي مع الكادر التدريسي
 
+    public function teachingStaff()
+    {
+        return $this->hasMany(TeachingStaff::class, 'created_by');
+    }
 
-        //علاقة المسؤول المحلي مع الكادر التدريسي
+    //علاقة المسؤول المحلي مع الفعاليات
 
-        public function teachingStaff()
-        {
-            return $this->hasMany(TeachingStaff::class,'created_by');
-        }
-
-        //علاقة المسؤول المحلي مع الفعاليات
-
-       public function event()
-       {
-           return $this->hasMany(Event::class,'created_by');
-       }
+    public function event()
+    {
+        return $this->hasMany(Event::class, 'created_by');
+    }
 
 
-    //    //علاقة المسؤول المحلي مع الكليات
 
-    //    public function college()
-    //    {
-    //        return $this->hasMany(College::class,'created_by');
-    //    }
 
     /**
      * The attributes that should be hidden for serialization.

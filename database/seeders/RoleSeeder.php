@@ -17,6 +17,6 @@ class RoleSeeder extends Seeder
         Role::create(['guard_name' => 'gadmin', 'name' => 'Admin']);
         Role::create(['guard_name' => 'ladmin', 'name' => 'Local Admin']);
         Role::create(['guard_name' => 'ladmin', 'name' => 'Assistant Local Admin']);
-        // Role::create(['guard_name' => 'ladmin', 'name' => 'Plasyer']);
+        Role::create(['guard_name' => 'userS', 'name' => 'User']);
     }
 }

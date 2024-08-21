@@ -14,13 +14,37 @@ class TeachingStaffSeeder extends Seeder
     public function run(): void
     {
         TeachingStaff::create([
-            'name' => "teachingStaff1",
+            'name' => "TeachingStaff1",
             'email' => "teachingStaff1@gmail.com",
-            'age' => '24',
+            'age' => '40',
             'gender' => '1',
             'status' => '1',
             'Designation' => 'profesore',
-            'img' => 'img1',
+            'img' => 'Image/TeachingStaffImage/staff1.jpg',
+            'univercityCollegeID' => '1',
+            'created_by' => '1',
+        ]);
+
+        TeachingStaff::create([
+            'name' => "TeachingStaff2",
+            'email' => "teachingStaff2@gmail.com",
+            'age' => '50',
+            'gender' => '1',
+            'status' => '1',
+            'Designation' => 'profesore',
+            'img' => 'Image/TeachingStaffImage/staff2.jpg',
+            'univercityCollegeID' => '1',
+            'created_by' => '1',
+        ]);
+
+        TeachingStaff::create([
+            'name' => "TeachingStaff3",
+            'email' => "teachingStaff3@gmail.com",
+            'age' => '50',
+            'gender' => '1',
+            'status' => '1',
+            'Designation' => 'Doctor',
+            'img' => 'Image/TeachingStaffImage/staff3.jpg',
             'univercityCollegeID' => '1',
             'created_by' => '1',
         ]);

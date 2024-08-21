@@ -83,5 +83,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'gadmin' => \App\Http\Middleware\GAdmin::class,
         'ladmin' => \App\Http\Middleware\LAdmin::class,
+        'userS' => \App\Http\Middleware\UserS::class,
+        'role' =>  \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
     ];
 }

@@ -1,0 +1,298 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    height: 80px; /* Increased height */
+    background-color: #000; /* Ensuring the background color is black */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link.text-orange {
+    color: #FFA500;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FFA500;
+}
+
+.navbar-brand img {
+    border-radius: 50%;
+}
+
+.navbar-toggler-icon {
+    background-color: #FFA500; /* Change the color of the toggler icon */
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow for more depth */
+}
+
+#about {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 4rem 0;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+}
+
+#about p.lead {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+#about img {
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for image depth */
+}
+
+
+.carousel-item img {
+    height: 660px; /* Height for all slides */
+    object-fit: cover;
+    filter: blur(2px); /* Slight blur effect for all slides */
+    transition: filter 0.5s ease; /* Smooth transition */
+}
+
+.carousel-item:last-child img {
+    height: 700px; /* Slightly increased height for the last slide */
+    object-fit: cover;
+    filter: blur(2px); /* Apply the same blur effect to the last slide */
+}
+
+.carousel-item img:hover {
+    filter: blur(0); /* Remove blur on hover */
+}
+
+.text-orange {
+    color: orange;
+}
+
+#universities {
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+
+#universities h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 10px; /* Smooth card corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    color: #6c757d; /* Muted text color */
+}
+
+.btn-orange {
+    background-color: #fd7e14;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #e76f00; /* Darker orange on hover */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the arrows */
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.card-img-top {
+    height: 260px !important; /* Force the height to apply */
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+#contact {
+    background-color: #f8f9fa; /* Light background color */
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.form-control, .form-select {
+    border-radius: 50px; /* Rounded corners for form controls */
+    padding: 0.75rem 1.25rem; /* Adjusted padding for better appearance */
+}
+
+.btn-orange {
+    background-color: #fd7e14;
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #e76f00; /* Darker orange on hover */
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.rounded {
+    border-radius: 15px; /* Rounded corners for the image */
+}
+
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem; /* Increased padding for better spacing */
+}
+
+footer p {
+    margin-bottom: 1rem;
+    align-items: end;
+}
+
+.social-icons a {
+    font-size: 1.5rem; /* Larger icons for better visibility */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #fd7e14; /* Hover color for social icons */
+}
+
+footer a {
+    text-decoration: none;
+    color: #fd7e14; /* Link color in footer */
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.fa {
+    margin: 0 0.5rem; /* Spacing between icons */
+}
+
+.map-container {
+    height: 450px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.map-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease-in-out;
+}
+.map-container:hover .map-overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.custom-control-prev {
+    left: -120px;
+}
+.custom-control-next {
+    right: -120px; 
+}
+
+.text-truncate-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+ .carousel-control-prev,
+    .carousel-control-next {
+        width: 5%;
+    }
+    .carousel-control-prev {
+        left: -30px;
+    }
+    .carousel-control-next {
+        right: -30px;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 30px;
+        height: 30px;
+    }
+    @media (max-width: 768px) {
+        .carousel-control-prev,
+        .carousel-control-next {
+            display: none;
+        }
+    }
+
+    .custom-alert-success {
+        background-color: #eafaf1; /* Light green background */
+        color: #2e7d32; /* Dark green text color */
+        border: 1px solid #c3e6cb; /* Green border */
+        border-radius: 50px; /* Rounded corners */
+        padding: 15px 20px; /* Padding for space inside */
+        position: relative; /* For positioning close button */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        font-weight: bold; /* Bold text */
+    }
+
+    .custom-alert-danger {
+        background-color: #f8d7da; /* Light red background */
+        color: #721c24; /* Dark red text color */
+        border: 1px solid #f5c6cb; /* Red border */
+        border-radius: 50px; /* Rounded corners */
+        padding: 15px 20px; /* Padding for space inside */
+        position: relative; /* For positioning close button */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        font-weight: bold; /* Bold text */
+    }
+
+    .custom-alert-success .btn-close, .custom-alert-danger .btn-close {
+        position: absolute;
+        right: 20px;
+        color: black;
+        font-size: 1.2rem;
+        border: none;
+        cursor: pointer;
+    }
+    
+    

@@ -21,6 +21,40 @@ class AddressSeeder extends Seeder
             'another_details' => '_',
             'longitude' => '36.303768811730095',
             'latitude' => '33.4943803229405',
+            'created_by' => '1',
+        ]);
+
+        Address::create([
+            'city' => 'damas',
+            'region' => 'region2',
+            'street' => 'street2',
+            'near' => 'near2',
+            'another_details' => '_',
+            'longitude' => '36.303768811730095',
+            'latitude' => '33.4943803229405',
+            'created_by' => '1',
+        ]);
+
+        Address::create([
+            'city' => 'damas',
+            'region' => 'region3',
+            'street' => 'street3',
+            'near' => 'near3',
+            'another_details' => '_',
+            'longitude' => '36.303768811730095',
+            'latitude' => '33.4943803229405',
+            'created_by' => '1',
+        ]);
+
+        Address::create([
+            'city' => 'damas',
+            'region' => 'region4',
+            'street' => 'street4',
+            'near' => 'near4',
+            'another_details' => '_',
+            'longitude' => '36.303768811730095',
+            'latitude' => '33.4943803229405',
+            'created_by' => '1',
         ]);
     }
 }

@@ -23,6 +23,6 @@ class GAdminSeeder extends Seeder
             'status'=>'1',
             'age'=>'23',
             'gender'=>'1',
-        ]);
+        ])->assignRole('Super Admin');
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UnivController;
+use App\Http\Controllers\Web\WebController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,32 +16,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', [WebController::class, 'index'])->name('web.index');
+
+Route::get('/university/details/{id}', [WebController::class, 'universityDetails'])->name('web.university.details');
+
+Route::get('/college/details/{id}', [WebController::class, 'collegeDetails'])->name('web.college.details');
+
+Route::get('/user/login', [WebController::class, 'userLogin'])->name('web.login');
+
+Route::post('/user/login/store', [WebController::class, 'storeLogin'])->name('web.login.store');
+
+Route::get('/user/logout', [WebController::class, 'logoutUser'])->name('web.logout');
+
+Route::get('/user/register', [WebController::class, 'userRegister'])->name('web.register');
+
+Route::post('/user/register/store', [WebController::class, 'storeRegister'])->name('web.register.store');
+
+Route::post('/web/search/university', [WebController::class, 'searchUniversity'])->name('web.search.univeristy');
+
+Route::middleware(['auth:userS'])->prefix('user')->group(function () {
+
+    Route::post('/question/store', [WebController::class, 'storeQuestion'])->name('web.question.store')->middleware('permission:Store Question UserS');
+
+    Route::get('/question/index', [WebController::class, 'questionIndex'])->name('web.question.index')->middleware('permission:Show Question UserS Table');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-Route::get('/univ/spu' , [UnivController::class , 'univ_spu'])->name('univ.spu');
-
-Route::get('/univ/iust' , [UnivController::class , 'univ_iust'])->name('univ.iust');
-
-Route::get('/univ/aiu' , [UnivController::class , 'univ_aiu'])->name('univ.aiu');
-
-Route::get('/univ/rpu' , [UnivController::class , 'univ_rpu'])->name('univ.rpu');
-
-Route::get('/univ/aspu' , [UnivController::class , 'univ_aspu'])->name('univ.aspu');
-
-Route::get('/univ/ypu' , [UnivController::class , 'univ_ypu'])->name('univ.ypu');
-
-Route::get('/univ/jpu' , [UnivController::class , 'univ_jpu'])->name('univ.jpu');
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

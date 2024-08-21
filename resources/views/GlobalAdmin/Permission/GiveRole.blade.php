@@ -59,23 +59,26 @@
                                                 <div class="lds-pos"></div>
                                             </div>
                                         </div>
-                                        <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-                                            data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-                                        
+                                        <div id="main-wrapper" data-theme="light" data-layout="vertical"
+                                            data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed"
+                                            data-header-position="fixed" data-boxed-layout="full">
+
                                             {{-- @include('layouts.adminHeader') --}}
-                                        
+
                                             <div class="page-wrapper">
-                                        
+
                                                 <div class="page-breadcrumb">
                                                     <div class="row">
                                                         <div class="col-7 align-self-center">
-                                                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Assign Role</h3>
-                                                           
+                                                            <h3
+                                                                class="page-title text-truncate text-dark font-weight-medium mb-1">
+                                                                Assign Role</h3>
+
                                                         </div>
-                                        
+
                                                     </div>
                                                 </div>
-                                        
+
                                                 <div class="container-fluid">
                                                     <div class="row">
                                                         <div class="col-10">
@@ -83,7 +86,8 @@
                                                                 @if (session('message_success'))
                                                                     <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show"
                                                                         role="alert">
-                                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="alert" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
                                                                         {{ session('message_success') }}
@@ -92,39 +96,54 @@
                                                                 @if (session('message_err'))
                                                                     <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show"
                                                                         role="alert">
-                                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="alert" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
                                                                         {{ session('message_err') }}
                                                                     </div>
                                                                 @endif
                                                                 <div class="card-body">
-                                        
-                                                                    <form action="{{ route('gadmin.permissions.roles', $permission->id) }}" method="POST">
+
+                                                                    <form
+                                                                        action="{{ route('gadmin.permissions.roles', $permission->id) }}"
+                                                                        method="POST">
                                                                         @csrf
                                                                         <div class="form-body">
                                                                             <div class="row">
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
-                                                                                        <label class="form-label">Permission Name:</label>
-                                                                                        <input type="text" class="form-control" id="nametext"
-                                                                                            aria-describedby="name" placeholder="Name" name="Name"
-                                                                                            value="{{ $permission->name }}" disabled>
+                                                                                        <label
+                                                                                            class="form-label">Permission
+                                                                                            Name:</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            id="nametext"
+                                                                                            aria-describedby="name"
+                                                                                            placeholder="Name"
+                                                                                            name="Name"
+                                                                                            value="{{ $permission->name }}"
+                                                                                            disabled>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group mb-4">
-                                                                                        <label class="form-label">Roles:</label>
-                                        
-                                                                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
+                                                                                        <label
+                                                                                            class="form-label">Roles:</label>
+
+                                                                                        <select
+                                                                                            class="custom-select mr-sm-2"
+                                                                                            id="inlineFormCustomSelect"
                                                                                             name="role">
                                                                                             @foreach ($roles as $role)
-                                                                                                <option selected>{{ $role->name }}</option>
+                                                                                                <option>
+                                                                                                    {{ $role->name }}
+                                                                                                </option>
                                                                                             @endforeach
                                                                                         </select>
                                                                                     </div>
-                                        
-                                        
+
+
                                                                                     <div class="form-actions">
                                                                                         <div class="text-left">
                                                                                             <button type="submit"
@@ -134,21 +153,23 @@
                                                                                 </div>
                                                                             </div>
                                                                     </form>
-                                        
+
                                                                     <div class="row">
                                                                         <div class="col-md-7 col-sm-5 p-5">
                                                                             <h4 class="card-title">Permission Roles</h4>
-                                                                            <div class="list-group"> <a href="javascript:void(0)"
+                                                                            <div class="list-group"> <a
+                                                                                    href="javascript:void(0)"
                                                                                     class="list-group-item active">{{ $permission->name }}</a>
-                                                                                    <br>                                          
-                                        
+                                                                                <br>
+
                                                                                 @if ($permission->roles)
                                                                                     @foreach ($permission->roles as $permission_roles)
                                                                                         <form method="post"
                                                                                             action="{{ route('gadmin.permissions.roles.remove', [$permission->id, $permission_roles->id]) }}">
                                                                                             @csrf
                                                                                             @method('delete')
-                                                                                            <button class=" list-group-item list-group-item-action btn-danger ">
+                                                                                            <button
+                                                                                                class=" list-group-item list-group-item-action btn-danger ">
                                                                                                 {{ $permission_roles->name }}
                                                                                             </button>
                                                                                         </form>
@@ -164,7 +185,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
 
 
                                     </div>

@@ -49,131 +49,150 @@
 
                                 <div class="card shadow">
                                     <div class="card-body">
-                                        
+
 
                                         {{-- @extends('Admin.empty') --}}
 
-<div class="preloader">
-    <div class="lds-ripple">
-        <div class="lds-pos"></div>
-        <div class="lds-pos"></div>
-    </div>
-</div>
-<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-
-    {{-- @include('layouts.adminHeader') --}}
-
-    <div class="page-wrapper">
-
-        <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-7 align-self-center">
-                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Assign Permission</h3>
-               
-                </div>
-
-            </div>
-        </div>
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-10">
-                    <div class="card">
-                        @if (session('message_success'))
-                            <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show"
-                                role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                {{ session('message_success') }}
-                            </div>
-                        @endif
-                        @if (session('message_err'))
-                            <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show"
-                                role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                {{ session('message_err') }}
-                            </div>
-                        @endif
-                        <div class="card-body">
-
-                            <form action="{{ route('gadmin.roles.permissions', $role->id) }}" method="POST">
-                                @csrf
-                                <div class="form-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-label">Role Name:</label>
-                                                <input type="text" class="form-control" id="nametext"
-                                                    aria-describedby="name" placeholder="Name" name="Name"
-                                                    value="{{ $role->name }}" disabled>
+                                        <div class="preloader">
+                                            <div class="lds-ripple">
+                                                <div class="lds-pos"></div>
+                                                <div class="lds-pos"></div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-4">
-                                                <label class="form-label">Permissions:</label>
+                                        <div id="main-wrapper" data-theme="light" data-layout="vertical"
+                                            data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed"
+                                            data-header-position="fixed" data-boxed-layout="full">
 
-                                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
-                                                    name="permission">
-                                                    @foreach ($permissions as $permission)
-                                                        <option selected>{{ $permission->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
+                                            {{-- @include('layouts.adminHeader') --}}
+
+                                            <div class="page-wrapper">
+
+                                                <div class="page-breadcrumb">
+                                                    <div class="row">
+                                                        <div class="col-7 align-self-center">
+                                                            <h3
+                                                                class="page-title text-truncate text-dark font-weight-medium mb-1">
+                                                                Assign Permission</h3>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-10">
+                                                            <div class="card">
+                                                                @if (session('message_success'))
+                                                                    <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show"
+                                                                        role="alert">
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="alert" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                        {{ session('message_success') }}
+                                                                    </div>
+                                                                @endif
+                                                                @if (session('message_err'))
+                                                                    <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show"
+                                                                        role="alert">
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="alert" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                        {{ session('message_err') }}
+                                                                    </div>
+                                                                @endif
+                                                                <div class="card-body">
+
+                                                                    <form
+                                                                        action="{{ route('gadmin.roles.permissions', $role->id) }}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        <div class="form-body">
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-label">Role
+                                                                                            Name:</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            id="nametext"
+                                                                                            aria-describedby="name"
+                                                                                            placeholder="Name"
+                                                                                            name="Name"
+                                                                                            value="{{ $role->name }}"
+                                                                                            disabled>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group mb-4">
+                                                                                        <label
+                                                                                            class="form-label">Permissions:</label>
+
+                                                                                        <select
+                                                                                            class="custom-select mr-sm-2"
+                                                                                            id="inlineFormCustomSelect"
+                                                                                            name="permission">
+                                                                                            @foreach ($permissions as $permission)
+                                                                                                <option>
+                                                                                                    {{ $permission->name }}
+                                                                                                </option>
+                                                                                            @endforeach
+                                                                                        </select>
+                                                                                    </div>
 
 
-                                            <div class="form-actions">
-                                                <div class="text-left">
-                                                    <button type="submit"
-                                                        class="btn btn-rounded  btn-info ">Assign</button>
+                                                                                    <div class="form-actions">
+                                                                                        <div class="text-left">
+                                                                                            <button type="submit"
+                                                                                                class="btn btn-rounded  btn-info ">Assign</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                    </form>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-7 col-sm-5 p-5">
+                                                                            <h4 class="card-title">Role Permission</h4>
+                                                                            <div class="list-group">
+                                                                                <a href="javascript:void(0)"
+                                                                                    class="list-group-item active">{{ $role->name }}</a>
+                                                                                <br>
+
+                                                                                @if ($role->permissions)
+                                                                                    @foreach ($role->permissions as $role_permission)
+                                                                                        <form method="POST"
+                                                                                            action="{{ route('gadmin.roles.permissions.revoke', [$role->id, $role_permission->id]) }}">
+                                                                                            @method('Delete')
+                                                                                            @csrf
+
+                                                                                            <button
+                                                                                                class="list-group-item list-group-item-action btn-danger">
+                                                                                                {{ $role_permission->name }}</button>
+
+                                                                                        </form>
+                                                                                    @endforeach
+                                                                                @endif
+
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+
+
                                         </div>
-                                    </div>
-                            </form>
-
-                            <div class="row">
-                                <div class="col-md-7 col-sm-5 p-5">
-                                    <h4 class="card-title">Role Permission</h4>
-                                    <div class="list-group">
-                                         <a href="javascript:void(0)"
-                                            class="list-group-item active">{{ $role->name }}</a>
-                                            <br>
-
-                                        @if ($role->permissions)
-                                            @foreach ($role->permissions as $role_permission)
-                                                <form method="POST"
-                                                    action="{{ route('gadmin.roles.permissions.revoke', [$role->id, $role_permission->id]) }}">
-                                                    @method('Delete')
-                                                    @csrf
-
-                                                    <button class="list-group-item list-group-item-action btn-danger">
-                                                        {{ $role_permission->name }}</button>
-
-                                                </form>
-                                            @endforeach
-                                        @endif
-
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
 
 
 

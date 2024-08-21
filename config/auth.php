@@ -48,6 +48,11 @@ return [
             'driver' => 'session',
             'provider' => 'ladmins',
         ],
+
+        'userS' => [
+            'driver' => 'session',
+            'provider' => 'usersS',
+        ],
     ],
 
     /*
@@ -79,6 +84,11 @@ return [
         'ladmins' => [
             'driver' => 'eloquent',
             'model' => App\Models\LAdmin::class,
+        ],
+
+        'usersS' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\UserS::class,
         ],
 
         // 'users' => [
