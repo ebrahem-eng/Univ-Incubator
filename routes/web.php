@@ -35,11 +35,11 @@ Route::post('/user/register/store', [WebController::class, 'storeRegister'])->na
 
 Route::post('/web/search/university', [WebController::class, 'searchUniversity'])->name('web.search.univeristy');
 
-Route::middleware(['auth:userS'])->prefix('user')->group(function () {
+Route::middleware(['userS'])->prefix('user')->group(function () {
 
-    Route::post('/question/store', [WebController::class, 'storeQuestion'])->name('web.question.store')->middleware('permission:Store Question UserS');
+    Route::post('/question/store', [WebController::class, 'storeQuestion'])->name('web.question.store');
 
-    Route::get('/question/index', [WebController::class, 'questionIndex'])->name('web.question.index')->middleware('permission:Show Question UserS Table');
+    Route::get('/question/index', [WebController::class, 'questionIndex'])->name('web.question.index');
 });
 
 require __DIR__ . '/auth.php';
