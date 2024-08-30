@@ -33,7 +33,7 @@
                             </div>
                             <button type="submit" class="btn btn-orange rounded-pill w-100">Login</button>
                         </form>
-                        <p class="text-center mt-4">Don't have an account? <a href="register.html" class="text-orange">Register</a></p>
+                        <p class="text-center mt-4">Don't have an account? <a href="{{route('web.register')}}" class="text-orange">Register</a></p>
                     </div>
                 </div>
             </div>

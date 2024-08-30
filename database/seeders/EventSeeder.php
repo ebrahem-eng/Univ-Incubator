@@ -21,7 +21,7 @@ class EventSeeder extends Seeder
             'eventDate' => '1-1-2024',
             'eventTime' => '01:00',
             'details' => 'Join us for the Annual Science Symposium where leading experts from various scientific fields will present their latest research findings. The symposium will include keynote speeches, panel discussions, and networking opportunities.',
-            'status' => '0',
+            'status' => '1',
             'created_by' => '1',
         ]);
 

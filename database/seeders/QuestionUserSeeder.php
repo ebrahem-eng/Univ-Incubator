@@ -16,15 +16,15 @@ class QuestionUserSeeder extends Seeder
         //
 
         UserQuestion::create([
-            'question' => 'q1',
-            'details' => 'det1',
+            'question' => 'Question 1',
+            'details' => 'Details 1',
             'userID' => '1',
         ]);
 
         UserQuestion::create([
-            'question' => 'q2',
-            'details' => 'det2',
-            'answer' => 'answer1',
+            'question' => 'Question 2',
+            'details' => 'Details 2',
+            'answer' => 'Answer 2',
             'answerBy' => '1',
             'userID' => '1',
         ]);
